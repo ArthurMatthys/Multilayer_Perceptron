@@ -150,8 +150,8 @@ def get_args():
             output file. It need to be stored so that np.load can properly \
             load the expected output")
 
-    parser.add_argument("size_layer", nargs='+', type=int,
-                        help="The size of each layer")
+    parser.add_argument("structure", nargs='+', type=int,
+                        help="File containing the neural structure")
     parser.add_argument("--save", type=str,
                         help="Name of the saving file for weigths", default="")
     parser.add_argument("--load", type=str,
@@ -163,7 +163,7 @@ def get_args():
     parser.add_argument("--regularisation", "-r", type=float,
                         help="The value of the regularisation in the cost",
                         default=0.016)
-    parser.add_argument("--alpha", type=float,
+    parser.add_argument("--alpha", "-a" type=float,
                         help="the value of alpha. By default,\
                                 alpha is dynamic",
                         default=0)
