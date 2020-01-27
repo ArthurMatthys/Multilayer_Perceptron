@@ -8,8 +8,13 @@ type NeuralNetwork struct {
 	Epoch          uint64
 	Save           string
 	Train          bool
+	layerSizes     uint
 }
 
 func Setup(mP NeuralNetwork, data, structure, load string) {
-
+	if load != "" {
+		importNetwork(mP, data, load)
+	} else {
+		createNetwork(mP, data, structure)
+	}
 }

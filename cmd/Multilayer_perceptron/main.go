@@ -40,6 +40,9 @@ func main() {
 	if load != "" && structure != "" {
 		log.Fatalf("If loading file is specify, you should give a structure")
 	}
+	if !mP.Train && load == "" {
+		log.Fatalf("If you want to predict something, you need to load a trained Multilayer Perceptron")
+	}
 	check_file(data)
 	check_file(structure)
 	if mP.Save != "" {
