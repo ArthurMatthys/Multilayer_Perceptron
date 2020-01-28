@@ -1,6 +1,8 @@
 package setup
 
-import ()
+import (
+	"github.com/ArthurMatthys/Multilayer_Perceptron/internal/parsing"
+)
 
 type NeuralNetwork struct {
 	Regularisation float64
@@ -12,9 +14,10 @@ type NeuralNetwork struct {
 }
 
 func Setup(mP NeuralNetwork, data, structure, load string) {
-	if load != "" {
-		importNetwork(mP, data, load)
-	} else {
-		createNetwork(mP, data, structure)
-	}
+	parsing.ParseNucleus(data)
+	//	if load != "" {
+	//		importNetwork(mP, data, load)
+	//	} else {
+	//		createNetwork(mP, data, structure)
+	//	}
 }
