@@ -2,3 +2,6 @@
 tags
 *.swp
 .mypy*
+build
+build/*
+build/multilayerPerceptron

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -21,14 +22,13 @@ func openFile(filename string) string {
 	return content
 }
 
-//func ParseNucleus(filename string) (input, output []float64) {
 func ParseNucleus(filename string) {
 	content := openFile(filename)
 	lines := strings.Split(content, "\n")
 	outputM := [2]uint{0, 1}
 	outputB := [2]uint{1, 0}
 	var output [][2]uint
-	//	var allData [][30]float64
+	var allData [][30]float64
 	for _, data := range lines {
 		if data == "" {
 			continue
@@ -41,7 +41,15 @@ func ParseNucleus(filename string) {
 		} else {
 			output = append(output, outputB)
 		}
-		//		inside := data[2:]
+		var inside [30]float64
+		var err error
+		for j, value := range line[2:] {
+			inside[j], err = strconv.ParseFloat(value, 64)
+			if err != nil {
+				log.Fatal(err)
+			}
+		}
+		allData = append(allData, inside)
 	}
 	fmt.Println(output)
 }
