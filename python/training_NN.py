@@ -101,7 +101,6 @@ class NeuralNetwork():
         for i in range(self.nbr_layer):
             self.gradient[i] = np.dot(np.transpose(self.neural_matrix[i]), middle_part[-i - 1]) * self.alpha / self.nbr_input
             self.gradient[i][1:] += self.regularisation * self.weight_matrix[i][1:] / self.nbr_input
-        
 
     def apply_gradient(self):
         """

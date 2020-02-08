@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"github.com/ArthurMatthys/Multilayer_Perceptron/internal/setup"
+	"github.com/ArthurMatthys/Multilayer_Perceptron/internal/neuralNetwork"
 	"log"
 	"os"
 )
@@ -21,7 +21,7 @@ func check_file(filename string) {
 func main() {
 	var data, structure string
 	var load string
-	var mP setup.NeuralNetwork
+	var mP neuralNetwork.NeuralNetwork
 
 	flag.StringVar(&data, "d", "", "Filename of the data file")
 	flag.StringVar(&structure, "s", "", "Structure of the")
@@ -60,5 +60,5 @@ func main() {
 	if mP.Epoch < 0 {
 		log.Fatalf("The number of epoch cannot be negative")
 	}
-	setup.Setup(mP, data, structure, load)
+	neuralNetwork.Setup(mP, data, structure, load)
 }
